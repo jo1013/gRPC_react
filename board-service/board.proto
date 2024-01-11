@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package board;
+
+// 게시판 관련 메시지 및 서비스 정의
+message BoardMessage {
+  string id = 1;
+  string title = 2;
+  string content = 3;
+  string authorId = 4;
+  // 필요한 추가 필드
+}
+
+service BoardService {
+  rpc CreateBoard(BoardMessage) returns (BoardMessage);
+  rpc GetBoard(GetBoardRequest) returns (BoardMessage);
+  // 추가 RPC 메서드
+}
+
+message GetBoardRequest {
+  string id = 1;
+}

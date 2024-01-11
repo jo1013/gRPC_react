@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package user;
+
+// 유저 관련 메시지 및 서비스 정의
+message UserMessage {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+  // 필요한 추가 필드
+}
+
+service UserService {
+  rpc CreateUser(UserMessage) returns (UserMessage);
+  rpc GetUser(GetUserRequest) returns (UserMessage);
+  // 추가 RPC 메서드
+}
+
+message GetUserRequest {
+  string id = 1;
+}
